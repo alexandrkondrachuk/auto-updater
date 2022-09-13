@@ -6,6 +6,10 @@
   "version": "1.18.9",
   "main": "public/electron.js",
   "homepage": "./",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alexandrkondrachuk/auto-updater"
+  },
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.7.1",
@@ -60,7 +64,8 @@
     "electron:package:win": "npm run build && electron-builder -w -c.extraMetadata.main=build/electron.js && npm run post:install",
     "electron:package:mac": "npm run build && electron-builder -m -c.extraMetadata.main=build/electron.js && npm run post:install",
     "electron:package:linux": "npm run build && electron-builder -l -c.extraMetadata.main=build/electron.js && npm run post:install",
-    "electron:package:mac:external": "electron-builder -m -c.extraMetadata.main=build/electron.js"
+    "electron:package:mac:external": "electron-builder -m -c.extraMetadata.main=build/electron.js",
+    "electron:mac:publish": "set GH_TOKEN=<personal_access_token> && electron-builder -m -c.extraMetadata.main=build/electron.js --publish always"
   },
   "eslintConfig": {
     "extends": [
